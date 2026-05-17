@@ -1,0 +1,23 @@
+model User {
+  id         String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  password   String
+  role       UserRole @default(user)
+  isVerified Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  products Product[]
+  orders   Order[]
+
+  verificationTokens VerificationToken[]
+}
+
+model VerificationToken {
+  id                String @id @default(uuid())
+  verificationToken String
+
+  userId String
+  users  User   @relation(fields: [userId], references: [id])
+}
