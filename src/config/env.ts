@@ -9,7 +9,7 @@ const env = {
   node_env: process.env.NODE_ENV,
   database_url: process.env.DATABASE_URL,
 
-  email_user: process.env.EMAIL_USER,
+  email_sender: process.env.EMAIL_SENDER,
   email_pass: process.env.EMAIL_PASS,
   server_url: process.env.SERVER_URL,
 };

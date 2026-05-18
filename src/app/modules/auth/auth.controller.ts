@@ -4,6 +4,16 @@ import { AuthService } from './auth.service';
 import { ApiResponse } from '../../../utils/ApiResponse';
 import status from 'http-status';
 
+//verify
+const verify = catchAsync(async (req: Request, res: Response) => {
+  const token = req.query.token as string;
+
+  const result = await AuthService.verify({ token });
+
+  ApiResponse.success(res, result, 'Account verified successfully', status.OK);
+});
+
+// register
 const register = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.register(req.body);
 
@@ -16,5 +26,6 @@ const register = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const AuthController = {
+  verify,
   register,
 };
