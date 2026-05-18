@@ -9,5 +9,7 @@ const router: Router = Router();
 router.get('/verify', AuthController.verify);
 // register
 router.post('/register', validateRequest(AuthValidation.registerValidation), AuthController.register);
+// login
+router.post('/login', validateRequest(AuthValidation.loginValidation), AuthController.login);
 
 export const AuthRoutes = router;

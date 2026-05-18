@@ -25,7 +25,15 @@ const register = catchAsync(async (req: Request, res: Response) => {
   );
 });
 
+// login
+const login = catchAsync(async (req: Request, res: Response) => {
+  const result = await AuthService.login(req.body);
+
+  ApiResponse.success(res, result, 'Login Successfull', status.OK);
+});
+
 export const AuthController = {
   verify,
   register,
+  login,
 };
