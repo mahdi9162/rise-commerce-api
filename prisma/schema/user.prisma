@@ -19,5 +19,5 @@ model VerificationToken {
   verificationToken String
 
   userId String
-  users  User   @relation(fields: [userId], references: [id])
+  user  User   @relation(fields: [userId], references: [id])
 }
